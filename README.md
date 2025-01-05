@@ -31,28 +31,20 @@ strength.
 testing.
 • Vulnerability Scanning: Tools like Nessus and OpenVAS to identify system weaknesses.
 
-3. User-Friendly Environment
+3. CTF Challenges
+
+
+4. User-Friendly Environment
 Spartan OS includes:
 • A pre-configured workspace optimized for penetration testing and OSINT.
 • Intuitive interfaces for key tools and utilities.
 • Custom scripts to automate repetitive tasks and improve productivity.
 
-4. Modular Design
+5. Modular Design
 Spartan OS allows users to:
 • Add new labs and challenges seamlessly.
 • Install additional tools based on specific requirements.
 Capture the Flag (CTF) Labs
-
-CTF_Lab01: Multi-Layer Login Challenge
-• Objective: Capture three hidden flags located within a simulated login system.
-• Skills Covered: Web application penetration testing, source code analysis, and database
-exploration.
-• Difficulty: Beginner to Intermediate.
-Future Labs:
-• CTF_Lab03-30: Coming soon with advanced challenges focusing on exploit development and
-privilege escalation.
-• Community Challenges: Collaborate with peers to develop and share custom labs.
-
 
 Pre-Installed Tools
 Spartan OS inherits the powerful arsenal of Kali Linux, categorised for ease of access:
