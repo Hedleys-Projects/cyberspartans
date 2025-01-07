@@ -96,7 +96,7 @@ Installation Steps:
 • Once the import is complete, select Spartan OS from the VirtualBox list.
 • Click Start to launch the VM.
 Your VM Credentials are:
-Usenamer: spartan
+Usename: spartan
 Password: spartan
 
 Tips for Success
