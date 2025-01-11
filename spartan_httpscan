@@ -56,6 +56,6 @@ if __name__ == "__main__":
 
 
 Save the tool as spartan_httpscan.py
-Run the tool by using python3 spartan_httpscan <target> - Remove <target> and write the URL of the target
+Run the tool by using python3 spartan_httpscan.py <target> - Remove <target> and write the URL of the target
 
 -- Hedley
