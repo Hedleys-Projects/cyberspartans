@@ -1,0 +1,79 @@
+Spartan_Set.py (Social Engineering Tool Kit) designed and created by David Kennedy (ReL1K)
+
+
+(Make sure you have the repos downloaded already) (This is a free tool anyone can download and utilize. It also does not cost)
+
+
+import tkinter as tk
+from tkinter import messagebox
+import subprocess
+
+class SocialEngineeringToolkit:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Spartan OS - Social Engineering Toolkit (SET)")
+        self.root.geometry("400x400")
+        
+        # Add title label
+        self.title_label = tk.Label(root, text="Social Engineering Toolkit (SET)", font=("Arial", 18))
+        self.title_label.pack(pady=20)
+        
+        # Add buttons for different SET attacks
+        self.phishing_button = tk.Button(root, text="Start Phishing Attack", width=30, command=self.start_phishing)
+        self.phishing_button.pack(pady=10)
+        
+        self.website_cloning_button = tk.Button(root, text="Clone Website", width=30, command=self.clone_website)
+        self.website_cloning_button.pack(pady=10)
+
+        self.sms_spoofing_button = tk.Button(root, text="SMS Spoofing", width=30, command=self.sms_spoofing)
+        self.sms_spoofing_button.pack(pady=10)
+        
+        self.email_spoofing_button = tk.Button(root, text="Email Spoofing", width=30, command=self.email_spoofing)
+        self.email_spoofing_button.pack(pady=10)
+    
+    # Function to start phishing attack
+    def start_phishing(self):
+        try:
+            subprocess.run(['sudo', 'setoolkit', '-q', '1'], check=True)
+        except subprocess.CalledProcessError as e:
+            messagebox.showerror("Error", f"An error occurred: {e}")
+        else:
+            messagebox.showinfo("Success", "Phishing attack started!")
+    
+    # Function to clone a website
+    def clone_website(self):
+        try:
+            subprocess.run(['sudo', 'setoolkit', '-q', '2'], check=True)
+        except subprocess.CalledProcessError as e:
+            messagebox.showerror("Error", f"An error occurred: {e}")
+        else:
+            messagebox.showinfo("Success", "Website cloning started!")
+    
+    # Function to spoof SMS
+    def sms_spoofing(self):
+        try:
+            subprocess.run(['sudo', 'setoolkit', '-q', '3'], check=True)
+        except subprocess.CalledProcessError as e:
+            messagebox.showerror("Error", f"An error occurred: {e}")
+        else:
+            messagebox.showinfo("Success", "SMS spoofing started!")
+    
+    # Function to spoof emails
+    def email_spoofing(self):
+        try:
+            subprocess.run(['sudo', 'setoolkit', '-q', '4'], check=True)
+        except subprocess.CalledProcessError as e:
+            messagebox.showerror("Error", f"An error occurred: {e}")
+        else:
+            messagebox.showinfo("Success", "Email spoofing started!")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = SocialEngineeringToolkit(root)
+    root.mainloop()
+
+
+Save the tool as spartan_set.py
+Run the tool by using python3 spartan_set.py - Follow the instructions of the Social Engineering Kit (SET). This has been developed by David Kennedy (ReL1K)
+
+-- Hedley
