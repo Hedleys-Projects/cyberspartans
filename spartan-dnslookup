@@ -46,6 +46,6 @@ if __name__ == "__main__":
 
 
 Save the tool as spartan_dnslookup.py
-Run the tool by using python3 spartan_dnslookup <target> - Remove <target> and write the URL of the target
+Run the tool by using python3 spartan_dnslookup.py <target> - Remove <target> and write the URL of the target
 
 -- Hedley
