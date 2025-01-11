@@ -51,6 +51,6 @@ if __name__ == "__main__":
 
 
 Save the tool as spartan_iplookup.py
-Run the tool by using python3 spartan_iplookup <target> - Remove <target> and write the IP of the target
+Run the tool by using python3 spartan_iplookup.py <target> - Remove <target> and write the IP of the target
 
 -- Hedley
