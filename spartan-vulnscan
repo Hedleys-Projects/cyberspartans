@@ -1,0 +1,78 @@
+Spartan_VulnScan.py
+
+
+(Make sure you have the repos downloaded already) (This is a free tool anyone can download and utilize. It also does not cost)
+
+import socket
+import requests
+import argparse
+
+# Spartan Banner
+def spartan_banner(tool_name):
+    banner = f"""
+========================================================
+                     SPARTAN VulnScan                       
+========================================================
+                Created by Hedley                    
+========================================================
+"""
+    print(banner)
+
+# Vulnerability Scan Function
+def vuln_scan(target):
+    print(f"\n[+] Scanning {target} for common vulnerabilities...")
+
+    # Check for open HTTP port (80, 443)
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        result = sock.connect_ex((target, 80))  # HTTP port
+        if result == 0:
+            print(f"[+] Port 80 (HTTP) is open - Check for potential XSS, SQL injection.")
+        sock.close()
+        
+        result = sock.connect_ex((target, 443))  # HTTPS port
+        if result == 0:
+            print(f"[+] Port 443 (HTTPS) is open - Ensure proper SSL/TLS configurations.")
+        sock.close()
+        
+    except Exception as e:
+        print(f"[-] Error checking ports: {e}")
+
+    # Check for SQL Injection Vulnerability (basic check)
+    try:
+        url = f"http://{target}/' OR 1=1--"
+        response = requests.get(url)
+        if "mysql" in response.text.lower():
+            print("[+] Potential SQL Injection vulnerability detected on HTTP.")
+    except requests.exceptions.RequestException as e:
+        print(f"[-] Error checking for SQL injection: {e}")
+
+    # Check for Open Redirect vulnerability (basic check)
+    try:
+        url = f"http://{target}/?url=http://evil.com"
+        response = requests.get(url)
+        if "Location" in response.headers and "evil.com" in response.headers["Location"]:
+            print("[+] Potential Open Redirect vulnerability detected.")
+    except requests.exceptions.RequestException as e:
+        print(f"[-] Error checking for Open Redirect: {e}")
+
+# Main Function
+def main():
+    spartan_banner("VulnScan")
+
+    parser = argparse.ArgumentParser(description="SPARTAN VulnScan - A tool for scanning common vulnerabilities.")
+    parser.add_argument("target", help="The IP address or domain to scan for vulnerabilities (e.g., 192.168.1.1 or example.com).")
+    args = parser.parse_args()
+
+    vuln_scan(args.target)
+
+if __name__ == "__main__":
+    main()
+
+
+
+Save the tool as spartan_vulnscan.py
+Run the tool by using python3 spartan_vulnscan.py <target> - Remove <target> and write the IP or URL of the target
+
+-- Hedley
