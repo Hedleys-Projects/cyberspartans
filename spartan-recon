@@ -1,0 +1,61 @@
+Spartan_Recon.py (OSINT Tool)
+
+
+(Make sure you have the repos downloaded already) (This is a free tool anyone can download and utilize. It also does not cost)
+
+
+import os
+import socket
+import subprocess
+from datetime import datetime
+
+# Spartan Banner
+def spartan_banner(tool_name):
+    banner = f"""
+========================================================
+                     SPARTAN RECON                       
+========================================================
+                Created by Hedley                    
+========================================================
+"""
+    print(banner)
+
+# DNS Lookup
+def dns_lookup(domain):
+    print("\n[*] Performing DNS Lookup...")
+    try:
+        ip_address = socket.gethostbyname(domain)
+        print(f"[+] {domain} resolves to {ip_address}")
+    except socket.gaierror:
+        print("[-] DNS lookup failed. Is the domain correct?")
+
+# WHOIS Lookup
+def whois_lookup(domain):
+    print("\n[*] Performing WHOIS Lookup...")
+    try:
+        result = subprocess.run(["whois", domain], capture_output=True, text=True)
+        print("[+] WHOIS Data:\n")
+        print(result.stdout)
+    except FileNotFoundError:
+        print("[-] WHOIS command not found. Install it using 'sudo apt install whois'.")
+
+# Main Function
+def main():
+    spartan_banner("Recon")
+    print("Welcome to SPARTAN Recon - Free OSINT Domain Recon Tool")
+
+    domain = input("\nEnter the domain to investigate (e.g., example.com): ").strip()
+    if domain:
+        dns_lookup(domain)
+        whois_lookup(domain)
+    else:
+        print("[-] Please enter a valid domain.")
+
+if __name__ == "__main__":
+    main()
+
+
+Save the tool as spartan_recon.py
+Run the tool by using python3 spartan_recon.py <target> - Remove <target> and write the URL of the target
+
+-- Hedley

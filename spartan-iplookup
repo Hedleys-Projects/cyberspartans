@@ -1,0 +1,56 @@
+Spartan_IPLookUp.py
+
+
+(Make sure you have the repos downloaded already) (This is a free tool anyone can download and utilize. It also does not cost)
+
+import requests
+import argparse
+
+# Spartan Banner
+def spartan_banner(tool_name):
+    banner = f"""
+========================================================
+                     SPARTAN IPLookUp                       
+========================================================
+                Created by Hedley                    
+========================================================
+"""
+    print(banner)
+
+# IP Lookup Function
+def ip_lookup(target):
+    url = f"http://ipinfo.io/{target}/json"  # Using ipinfo.io for free IP lookup
+    try:
+        response = requests.get(url)
+        data = response.json()
+        if 'error' in data:
+            print(f"[-] Failed to retrieve information for {target}")
+        else:
+            print(f"\n[+] IP Lookup for {target}")
+            print(f"IP Address: {data.get('ip', 'N/A')}")
+            print(f"City: {data.get('city', 'N/A')}")
+            print(f"Region: {data.get('region', 'N/A')}")
+            print(f"Country: {data.get('country', 'N/A')}")
+            print(f"Location: {data.get('loc', 'N/A')}")
+            print(f"Organization: {data.get('org', 'N/A')}")
+    except Exception as e:
+        print(f"[-] An error occurred: {e}")
+
+# Main Function
+def main():
+    spartan_banner("IP Lookup")
+
+    parser = argparse.ArgumentParser(description="SPARTAN IP Lookup - A tool for IP address geolocation and info.")
+    parser.add_argument("target", help="The IP address to look up (e.g., 192.168.1.1).")
+    args = parser.parse_args()
+
+    ip_lookup(args.target)
+
+if __name__ == "__main__":
+    main()
+
+
+Save the tool as spartan_iplookup.py
+Run the tool by using python3 spartan_iplookup.py <target> - Remove <target> and write the IP of the target
+
+-- Hedley

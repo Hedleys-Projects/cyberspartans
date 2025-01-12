@@ -1,0 +1,61 @@
+Spartan_HTTPScan.py
+
+
+(Make sure you have the repos downloaded already) (This is a free tool anyone can download and utilize. It also does not cost)
+
+
+import requests
+import argparse
+
+# Spartan Banner with Plain Text
+def spartan_banner(tool_name):
+    banner = f"""
+========================================================
+                     SPARTAN HTTP Scan                       
+========================================================
+                Created by Hedley                    
+========================================================
+"""
+    print(banner)
+
+# HTTP Header Analyzer Function
+def http_header_analyzer(url):
+    try:
+        # Sending a GET request to fetch headers
+        response = requests.get(url)
+        print(f"\n[+] HTTP Header Analysis for {url}")
+
+        # Displaying all headers
+        for header, value in response.headers.items():
+            print(f"{header}: {value}")
+
+        # Check for common security headers
+        security_headers = ['Strict-Transport-Security', 'X-Content-Type-Options', 'X-Frame-Options', 'Content-Security-Policy', 'X-XSS-Protection']
+        print("\n[+] Security Headers Analysis:")
+        for header in security_headers:
+            if header in response.headers:
+                print(f"[+] {header}: {response.headers[header]}")
+            else:
+                print(f"[-] {header}: Not Present")
+
+    except requests.exceptions.RequestException as e:
+        print(f"[-] An error occurred: {e}")
+
+# Main Function
+def main():
+    spartan_banner("HTTP Header Analyzer")
+
+    parser = argparse.ArgumentParser(description="SPARTAN HTTP Header Analyzer - A tool to analyze HTTP headers and security configurations.")
+    parser.add_argument("url", help="The URL to analyze (e.g., https://example.com).")
+    args = parser.parse_args()
+
+    http_header_analyzer(args.url)
+
+if __name__ == "__main__":
+    main()
+
+
+Save the tool as spartan_httpscan.py
+Run the tool by using python3 spartan_httpscan.py <target> - Remove <target> and write the URL of the target
+
+-- Hedley
