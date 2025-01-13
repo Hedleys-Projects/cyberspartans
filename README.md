@@ -54,8 +54,9 @@ Exploit a Local File Inclusion (LFI) vulnerability to retrieve a hidden flag sto
 
 ### 📥 Access Challenges via Spartan OS  
 1. Boot up **Spartan OS Beta Version 1.0.13**.  
-2. Navigate to the **CTF Challenges** section from the Spartan OS interface.  
-3. Select the lab you'd like to play and follow the on-screen instructions.
+2. Navigate to the **CTF LABS** section from the Spartan OS interface.
+3. Select the Instructions Folder and find the one you want to run. 
+4. Follow the instructions and enjoy!
 
 ---
 
