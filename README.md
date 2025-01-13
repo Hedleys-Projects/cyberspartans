@@ -1,4 +1,4 @@
-Welcome to Spartan OS (BETA)
+### Welcome to Spartan OS (BETA)
 Version 1.0.13
 
 
